@@ -6,6 +6,7 @@ A simple list of tasks, based on a relational database. The data is processed by
 <p align="center">
 <img src ="images/IMG_3238.PNG" width="30%" height ="30%" alt="Screenshot from IOS." ><br>
 <img src ="images/desktop.png" width="70%" height ="70%" alt="Screenshot from MacOS." ><br>
+
 </p>
 # Technology
 
@@ -26,6 +27,11 @@ $ Click for debug section next run it.
 
 ```
 
+# Database diagram:
+
+<p align="center">
+<img src ="images/database_name.svg" width="70%" height ="70%" alt="Screenshot Database." ><br>
+</p>
 # REST API specification
 
 Tornado Python REST API link:<br>
