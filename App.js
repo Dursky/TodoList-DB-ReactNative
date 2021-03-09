@@ -14,29 +14,30 @@ import {
 export default class Myproject extends Component {
   constructor(props) {
     super(props);
-
-    (this.array = [
-      {
-        title: "- ONE",
-      },
-      {
-        title: "- TWO",
-      },
-      {
-        title: "- THREE",
-      },
-      {
-        title: "- FOUR",
-      },
-      {
-        title: "- FIVE",
-      },
-    ]),
+    (this.array = []),
       (this.state = {
         arrayHolder: [],
-
         textInput_Holder: "",
       });
+
+    (async () => {
+      const rawResponse = await fetch(`http://127.0.0.1:3000/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const content = await rawResponse.json();
+
+      for (var i = 0; i < content.length; i++) {
+        var getTask = content[i]["content"];
+        this.array.push({ title: getTask });
+      }
+      this.setState({
+        arrayHolder: [...this.array],
+      });
+    })();
   }
   //Get index by specified attribute
   findWithAttr(array, attr, value) {
@@ -55,10 +56,23 @@ export default class Myproject extends Component {
   //Add data to array
   joinData = () => {
     //Push data to array
-    this.array.push({ title: "- " + this.state.textInput_Holder });
+
+    (async () => {
+      const rawResponse = await fetch(`http://127.0.0.1:3000/add`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: this.state.textInput_Holder }),
+      });
+      const content = await rawResponse.json();
+    })();
+    this.array.push({ title: this.state.textInput_Holder });
 
     //Refresh array
     this.setState({ arrayHolder: [...this.array] });
+    console.log(this.array);
   };
 
   FlatListItemSeparator = () => {
@@ -78,6 +92,19 @@ export default class Myproject extends Component {
     var index = this.findWithAttr(this.array, "title", item);
     this.array.splice(index, 1);
     this.setState({ arrayHolder: [...this.array] });
+    //Remove task from DB
+    (async () => {
+      const rawResponse = await fetch(`http://127.0.0.1:3000/delete`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: this.state.textInput_Holder }),
+      });
+      const content = await rawResponse.json();
+    })();
+
     console.log(this.array);
   }
 
