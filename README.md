@@ -2,8 +2,10 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)<br>
 A simple list of tasks, based on a relational database. The data is processed by the proprietary REST API.<br>
-<img src ="images/IMG_3238.PNG" width="30%" height ="30%" alt="Screenshot from IOS." styles=" align:center "><br>
 
+<p align="center">
+<img src ="images/IMG_3238.PNG" width="30%" height ="30%" alt="Screenshot from IOS." ><br>
+</p>
 # Technology
 
 - [REST API] We have two api at our disposal - placed on Node.js and on Tornado - Python. Download links below :)<br>
