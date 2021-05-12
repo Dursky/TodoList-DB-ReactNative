@@ -1,7 +1,9 @@
 ### TodoList-DB-ReactNative
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)<br>
-A simple list of tasks, based on a relational database. The data is processed by the proprietary REST API.<br>
+A simple application to add, delete and view typed tasks / words.<br>
+In short - TODO App.<br>
+The data is processed by the proprietary REST API.<br>
 
 <p align="center">
 <img src ="images/IMG_3238.PNG" width="30%" height ="30%" alt="Screenshot from IOS." ><br>
